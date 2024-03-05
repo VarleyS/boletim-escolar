@@ -35,7 +35,7 @@ class App extends React.Component {
 
     return (
       <>
-        <input type="text" value={this.state.nome} onChange={ this.modificarNome }/><br/>
+        <input className='texto-centralizado' type="text" value={this.state.nome} onChange={ this.modificarNome }/><br/>
         <h1>Hello {this.props.nome} sua idade é {this.props.idade}!</h1>
         <MeuComboBox />
       </>

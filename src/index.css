@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1 {
+  color: red;
+}
+
+input {
+  font-size: 25px;
+}
+
+select {
+  font-size: 20px;
+}
+
+.texto-centralizado {
+  text-align: center;
+}
