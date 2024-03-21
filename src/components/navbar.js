@@ -18,12 +18,12 @@ function Navbar(){
                 <div className="collapse navbar-collapse" id="navbarColor04">
                     <ul className="navbar-nav me-auto">
                         <li className="nav-item">
-                            <a className="nav-link active" href="/">Home
+                            <a className="nav-link active" href="home">Home
                                 <span className="visually-hidden">(current)</span>
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Cadastro Aluno</a>
+                            <a className="nav-link" href="cadastro-aluno">Cadastro Aluno</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">Cadastro Notas</a>

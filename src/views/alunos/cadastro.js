@@ -8,7 +8,7 @@ class CadastroAluno extends React.Component {
                     Cadastro Aluno
                 </div>
                 <div className="card-body">
-                        
+                    Card Body  
                 </div>
             </div>
         )
