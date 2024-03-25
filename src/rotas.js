@@ -8,8 +8,8 @@ export default () => {
     return (
         <HashRouter>        
             <Routes>
-                <Route exact path="/home" element={<Home />} />
-                <Route exact path="/cadastro-aluno" element={<CadastroAluno />} />
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="cadastro_aluno" element={<CadastroAluno />} />
             </Routes>
         </HashRouter>
 

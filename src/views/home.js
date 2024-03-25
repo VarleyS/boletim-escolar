@@ -1,6 +1,6 @@
 import React from "react";
 
-function Home () {
+function Home(){
     return (
         <div className="list-group">
             <a href="#" className="list-group-item list-group-item-action flex-column align-items-start active">
