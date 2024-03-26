@@ -20,7 +20,7 @@ function Navbar() {
                             <a class="nav-link" href="#/cadastro-aluno">Cadastro Aluno</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cadastro-notas">Cadastro Notas</a>
+                            <a class="nav-link" href="#/cadastro-notas">Cadastro Notas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="sobre">Sobre</a>
