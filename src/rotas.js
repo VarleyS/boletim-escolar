@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, HashRouter, Routes } from 'react-router-dom';
 import Home from './views/home';
 import CadastroAluno from './views/alunos/cadastro';
-import CadastroNotas from './views/notas/notas';
+import CadastroNotas from './views/notas/cadastro';
 
 export default () => {
     return (

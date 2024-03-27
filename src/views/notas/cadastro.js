@@ -45,36 +45,6 @@ class CadastroNotas extends React.Component {
                                 <td>Column content</td>
                                 <td>Column content</td>
                             </tr>
-                            <tr class="table-danger">
-                                <th scope="row">Danger</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr class="table-warning">
-                                <th scope="row">Warning</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr class="table-info">
-                                <th scope="row">Info</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr class="table-light">
-                                <th scope="row">Light</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr class="table-dark">
-                                <th scope="row">Dark</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
