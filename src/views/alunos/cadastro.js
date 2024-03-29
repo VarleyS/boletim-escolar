@@ -5,15 +5,27 @@ class CadastroAluno extends React.Component {
         return (
             <div className="card">
                 <div className="card-header">
-                    <h2>Example body text</h2>
-                    <p>Nullam quis risus eget <a href="/">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-                    <p><small>This line of text is meant to be treated as fine print.</small></p>
-                    <p>The following is <strong>rendered as bold text</strong>.</p>
-                    <p>The following is <em>rendered as italicized text</em>.</p>
-                    <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+                    <h2>Cadastro de Alunos</h2>
                 </div>
                 <div className="card-body">
-                    Card Body
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="form-group">
+                                <label>Nome: *</label>
+                                <input type="text" className="form-control" />  
+                            </div>
+                        </div>
+
+                        <div className="col-md-6">
+                            <div className="form-group">
+                                <label>Data de Nascimento: *</label>
+                                <input type="text" className="form-control" />  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                <button type="button" class="btn btn-light">Salvar</button>
                 </div>
             </div>
         )
