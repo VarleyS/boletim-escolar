@@ -5,7 +5,7 @@ class CadastroNotas extends React.Component {
         return (
             <div className="form-notas">
                 <div className="form-body">
-                    <table class="table table-hover">
+                    <table className="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">Type</th>
@@ -15,31 +15,25 @@ class CadastroNotas extends React.Component {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="table-active">
+                            <tr className="table-active">
                                 <th scope="row">Active</th>
                                 <td>Column content</td>
                                 <td>Column content</td>
                                 <td>Column content</td>
                             </tr>
-                            <tr>
-                                <th scope="row">Default</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr class="table-primary">
+                            <tr className="table-primary">
                                 <th scope="row">Primary</th>
                                 <td>Column content</td>
                                 <td>Column content</td>
                                 <td>Column content</td>
                             </tr>
-                            <tr class="table-secondary">
+                            <tr className="table-secondary">
                                 <th scope="row">Secondary</th>
                                 <td>Column content</td>
                                 <td>Column content</td>
                                 <td>Column content</td>
                             </tr>
-                            <tr class="table-success">
+                            <tr className="table-success">
                                 <th scope="row">Success</th>
                                 <td>Column content</td>
                                 <td>Column content</td>
