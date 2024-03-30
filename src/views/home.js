@@ -1,17 +1,26 @@
 import React from "react";
 
-function Home(){
+function Home() {
     return (
-        <div className="list-group">
-            <a href="cadastro-aluno" className="list-group-item list-group-item-action flex-column align-items-start active">
-                <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">Bem vindo a tela Home!</h5>
-                    <small>3 days ago</small>
-                </div>
-                <p className="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <small>Donec id elit non mi porta.</small>
-            </a>
-            <button type="button" class="btn btn-primary">Primary</button>
+        <div className="container">
+            <div>
+                <h2>Example body text</h2>
+                <p>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+                <p><small>This line of text is meant to be treated as fine print.</small></p>
+                <p>The following is <strong>rendered as bold text</strong>.</p>
+                <p>The following is <em>rendered as italicized text</em>.</p>
+                <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+            </div>
+
+            <figure>
+                <blockquote class="blockquote">
+                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    Someone famous in <cite title="Source Title">Source Title</cite>
+                </figcaption>
+            </figure>
         </div>
     )
 }
