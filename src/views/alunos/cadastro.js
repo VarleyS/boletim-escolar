@@ -1,4 +1,5 @@
 import React from "react";
+import AlunoService from "../../app/alunoService";
 
 const estadoInicial = {
     nome: '',
@@ -9,9 +10,19 @@ const estadoInicial = {
     telefone: ''
 }
 
+const margemTop = {
+    margem: 5,
+    top: 5
+}
+
 class CadastroAluno extends React.Component {
 
     state = estadoInicial;
+
+    constructor() {
+        super()
+        this.service = new AlunoService();
+    }
 
     onChange = (event) => {
         const valor = event.target.value;
@@ -20,7 +31,17 @@ class CadastroAluno extends React.Component {
     }
 
     onSubmit = (event) => {
-        console.log(this.state)
+        const aluno = {
+            nome: this.state.nome,
+            dataNascimento: this.state.dataNascimento, // Formato DD/MM/AAAA
+            cpf: this.state.cpf,
+            rg: this.state.rg,
+            sexo: this.state.sexo,
+            telefone: this.state.telefone
+        }
+        this.service.salvar(aluno)
+        this.limpaCampos();
+        console.log("Salvo com sucesso!")
     }
 
     limpaCampos = () => {
@@ -117,11 +138,11 @@ class CadastroAluno extends React.Component {
                     </div>
 
                     <div className="row">
-                        <div className="col-md-1">
+                        <div className="col-md-1" style={{marginTop: "5px"}}>
                             <button onClick={this.onSubmit} className="btn btn-success" >Salvar</button>
                         </div>
 
-                        <div className="col-md-1">
+                        <div className="col-md-1" style={{marginTop: "5px"}}>
                             <button onClick={this.limpaCampos} className="btn btn-primary" >Cancelar</button>
                         </div>
                     </div>
