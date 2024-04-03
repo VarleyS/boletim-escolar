@@ -138,11 +138,11 @@ class CadastroAluno extends React.Component {
                     </div>
 
                     <div className="row">
-                        <div className="col-md-1" style={{marginTop: "5px"}}>
+                        <div className="col-md-1" style={{marginTop: "10px"}}>
                             <button onClick={this.onSubmit} className="btn btn-success" >Salvar</button>
                         </div>
 
-                        <div className="col-md-1" style={{marginTop: "5px"}}>
+                        <div className="col-md-1" style={{marginTop: "10px"}}>
                             <button onClick={this.limpaCampos} className="btn btn-primary" >Cancelar</button>
                         </div>
                     </div>
