@@ -3,16 +3,13 @@ import AlunoService from "../../app/alunoService";
 
 const estadoInicial = {
     nome: '',
-    dataNascimento: '01/01/2000', // Formato DD/MM/AAAA
+    dataNascimento: '', // Formato DD/MM/AAAA
     cpf: '',
     rg: '',
     sexo: '',
-    telefone: ''
-}
-
-const margemTop = {
-    margem: 5,
-    top: 5
+    telefone: '',
+    sucesso: false,
+    errors: []
 }
 
 class CadastroAluno extends React.Component {
@@ -39,9 +36,15 @@ class CadastroAluno extends React.Component {
             sexo: this.state.sexo,
             telefone: this.state.telefone
         }
-        this.service.salvar(aluno)
-        this.limpaCampos();
-        console.log("Salvo com sucesso!")
+        try {
+            this.service.salvar(aluno)
+            this.limpaCampos()
+            this.setState({sucesso: true})
+        } catch (erro) {
+            const errors = erro.errors
+            this.setState({ errors : errors })
+        }
+
     }
 
     limpaCampos = () => {
@@ -61,6 +64,28 @@ class CadastroAluno extends React.Component {
                             <input type="file" id="imagem"/>
                         </label>
                     </div> */}
+
+                    {this.state.sucesso &&
+                        <div class="alert alert-dismissible alert-success">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            <strong>Ótimo!</strong> Cadastro realizado com sucesso!
+                        </div>
+                    }
+
+                    {this.state.errors.length > 0 &&
+
+                        this.state.errors.map(msg => {
+                            return (
+                                <div class="alert alert-dismissible alert-danger">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                    <strong>Erro!</strong> { msg }
+                                </div>
+                            )
+                        })
+
+                    }
+
+
                     <div className="row">
                         <div className="col-md-6">
                             <div className="form-group">
@@ -138,11 +163,11 @@ class CadastroAluno extends React.Component {
                     </div>
 
                     <div className="row">
-                        <div className="col-md-1" style={{marginTop: "10px"}}>
+                        <div className="col-md-1" style={{ marginTop: "10px" }}>
                             <button onClick={this.onSubmit} className="btn btn-success" >Salvar</button>
                         </div>
 
-                        <div className="col-md-1" style={{marginTop: "10px"}}>
+                        <div className="col-md-1" style={{ marginTop: "10px" }}>
                             <button onClick={this.limpaCampos} className="btn btn-primary" >Cancelar</button>
                         </div>
                     </div>
