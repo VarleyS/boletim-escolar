@@ -6,6 +6,11 @@ export function ErroValidacao(errors){
 
 export default class AlunoService {
 
+    obterAlunos = () => {
+        const alunos = localStorage.getItem(ALUNOS);
+        return JSON.parse(alunos)
+    }
+
     salvar = (aluno) => {
 
         this.validar(aluno)

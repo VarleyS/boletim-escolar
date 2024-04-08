@@ -23,6 +23,9 @@ function Navbar() {
                             <a class="nav-link" href="#/cadastro-nota">Cadastro Notas</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="#/consulta-aluno">Consulta Aluno</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="sobre">Sobre</a>
                         </li>
                         <li class="nav-item dropdown">
