@@ -23,7 +23,7 @@ class ConsultaAluno extends React.Component {
                 <div className="card-header">Consultar Aluno</div>
                 <div className="form-notas">
                     <div className="form-body">
-                        <table class="table table-hover">
+                        <table className="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">Nome</th>
@@ -36,10 +36,9 @@ class ConsultaAluno extends React.Component {
                             </thead>
                             <tbody>
                                 {
-                                    this.state.alunos.map(aluno => {
+                                    this.state.alunos.map((aluno, index) => {
                                         return (
-                                            <tr className="table-success">
-                                                <th scope="row">Português</th>
+                                            <tr key={index} className="table-success">
                                                 <th>{aluno.nome}</th>
                                                 <th>{aluno.dataNascimento}</th>
                                                 <th>{aluno.cpf}</th>

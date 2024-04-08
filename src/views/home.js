@@ -13,11 +13,11 @@ function Home() {
                     <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
                 
                     <figure>
-                        <blockquote class="blockquote">
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <blockquote className="blockquote">
+                            <p className="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
 
                         </blockquote>
-                        <figcaption class="blockquote-footer">
+                        <figcaption className="blockquote-footer">
                             Someone famous in <cite title="Source Title">Source Title</cite>
                         </figcaption>
                     </figure>
