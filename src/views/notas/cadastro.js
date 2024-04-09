@@ -17,19 +17,6 @@ class CadastroNotas extends React.Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                this.state.alunos.map(aluno => {
-                                    return (
-                                        <tr className="table-primary">
-                                            <th scope="row">Português</th>
-                                            <td>{aluno.nota}</td>
-                                            <td>Column content</td>
-                                            <td>Column content</td>
-                                            <td>Column content</td>
-                                        </tr>
-                                    )
-                                }
-                                )}
                             <tr className="table-primary">
                                 <th scope="row">Matematica</th>
                                 <td>Column content</td>
