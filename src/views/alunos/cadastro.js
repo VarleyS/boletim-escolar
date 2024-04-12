@@ -39,10 +39,10 @@ class CadastroAluno extends React.Component {
         try {
             this.service.salvar(aluno)
             this.limpaCampos()
-            this.setState({sucesso: true})
+            this.setState({ sucesso: true })
         } catch (erro) {
             const errors = erro.errors
-            this.setState({ errors : errors })
+            this.setState({ errors: errors })
         }
 
     }
@@ -58,13 +58,6 @@ class CadastroAluno extends React.Component {
                     <h2>Cadastro de Alunos</h2>
                 </div>
                 <div className="card-body">
-                    {/* <div className="img-aluno">
-                        <label htmlFor="imagem">
-                            <h5>Adicionar Imagem do Aluno:</h5>
-                            <input type="file" id="imagem"/>
-                        </label>
-                    </div> */}
-
                     {this.state.sucesso &&
                         <div className="alert alert-dismissible alert-success">
                             <button type="button" className="btn-close" data-bs-dismiss="alert"></button>
@@ -78,7 +71,7 @@ class CadastroAluno extends React.Component {
                             return (
                                 <div className="alert alert-dismissible alert-danger">
                                     <button type="button" className="btn-close" data-bs-dismiss="alert"></button>
-                                    <strong>Erro!</strong> { msg }
+                                    <strong>Erro!</strong> {msg}
                                 </div>
                             )
                         })
