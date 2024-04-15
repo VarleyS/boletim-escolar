@@ -1,7 +1,8 @@
 import React from "react";
 import AlunoService from "../../app/alunoService";
+import { withRouter } from 'react-router-dom';
 
-class ConsultaAluno extends React.Component {
+export default class ConsultaAluno extends React.Component {
 
     state = {
         alunos: []
@@ -15,6 +16,10 @@ class ConsultaAluno extends React.Component {
     componentDidMount() {
         const alunos = this.service.obterAlunos();
         this.setState({alunos})
+    }
+
+    preparaEditar = (cpf) => {
+        this.props.history.push(`/cadastro-aluno/${cpf}`)
     }
 
     render() {
@@ -45,7 +50,10 @@ class ConsultaAluno extends React.Component {
                                                 <th>{aluno.rg}</th>
                                                 <th>{aluno.sexo}</th>
                                                 <th>{aluno.telefone}</th>
-                                                <th></th>
+                                                <th>
+                                                    <button onClick={() => this.preparaEditar(aluno.cpf)} className="btn btn-primary">Editar</button>
+                                                    <button className="btn btn-danger">Remover</button>
+                                                </th>
                                             </tr>
                                         )
                                     }
@@ -58,6 +66,5 @@ class ConsultaAluno extends React.Component {
         )
     }
 }
-
-export default ConsultaAluno;
+export default withRouter(ConsultaAluno);  //Para  usar o withRouter no React Router v4 é necessário importar com "withRouter"
 
