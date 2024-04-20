@@ -1,5 +1,21 @@
 import React from "react";
 import AlunoService from "../../app/alunoService";
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+
+function withRouter(Component) {
+    function ComponentWithRouterProp(props) {
+        let location = useLocation();
+        let navigate = useNavigate();
+        let params = useParams();
+        return (
+            <Component
+                {...props}
+                router={{ location, navigate, params }}
+            />
+        );
+    }
+    return ComponentWithRouterProp;
+}
 
 const estadoInicial = {
     nome: '',
@@ -49,6 +65,11 @@ class CadastroAluno extends React.Component {
 
     limpaCampos = () => {
         this.setState(estadoInicial);
+    }
+
+    componentDidMount(){
+        console.log(this.props.params)
+
     }
 
     render() {
@@ -170,4 +191,4 @@ class CadastroAluno extends React.Component {
     }
 }
 
-export default CadastroAluno; 
+export default withRouter(CadastroAluno); 

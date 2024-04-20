@@ -9,7 +9,7 @@ export default () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="cadastro-aluno" element={<CadastroAluno />} />
+            <Route path="cadastro-aluno/:cpf?" element={<CadastroAluno />} />
             <Route path="cadastro-nota" element={<CadastroNotas />} />
             <Route path="consulta-aluno" element={<ConsultaAlunos />} />
         </Routes>

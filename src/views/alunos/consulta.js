@@ -1,26 +1,42 @@
 import React from "react";
 import AlunoService from "../../app/alunoService";
-import { withRouter } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
-export default class ConsultaAluno extends React.Component {
+function withRouter(Component) {
+    function ComponentWithRouterProp(props) {
+        let location = useLocation();
+        let navigate = useNavigate();
+        let params = useParams();
+        return (
+            <Component
+                {...props}
+                router={{ location, navigate, params }}
+            />
+        );
+    }
+    return ComponentWithRouterProp;
+}
+
+class ConsultaAluno extends React.Component {
 
     state = {
         alunos: []
     }
 
-    constructor(){
+    constructor() {
         super()
         this.service = new AlunoService();
     }
 
     componentDidMount() {
         const alunos = this.service.obterAlunos();
-        this.setState({alunos})
+        this.setState({ alunos })
     }
 
     preparaEditar = (cpf) => {
-        this.props.history.push(`/cadastro-aluno/${cpf}`)
-    }
+        console.log("CPF para edição", cpf);
+        this.props.router.navigate("/cadastro-aluno/" + cpf);
+    };
 
     render() {
         return (
@@ -66,5 +82,6 @@ export default class ConsultaAluno extends React.Component {
         )
     }
 }
-export default withRouter(ConsultaAluno);  //Para  usar o withRouter no React Router v4 é necessário importar com "withRouter"
 
+
+export default withRouter(ConsultaAluno);
