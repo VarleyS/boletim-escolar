@@ -24,6 +24,7 @@ const estadoInicial = {
     rg: '',
     sexo: '',
     telefone: '',
+    responsavel: '',
     sucesso: false,
     errors: []
 }
@@ -50,7 +51,8 @@ class CadastroAluno extends React.Component {
             cpf: this.state.cpf,
             rg: this.state.rg,
             sexo: this.state.sexo,
-            telefone: this.state.telefone
+            telefone: this.state.telefone,
+            responsavel: this.state.responsavel
         }
         try {
             this.service.salvar(aluno)
@@ -171,6 +173,18 @@ class CadastroAluno extends React.Component {
                                     name="telefone"
                                     onChange={this.onChange}
                                     value={this.state.telefone}
+                                    className="form-control" />
+                            </div>
+                        </div>
+
+                        <div className="col-md-6">
+                            <div className="form-group">
+                                <label>Responsável: *</label>
+                                <input
+                                    type="text"
+                                    name="responsavel"
+                                    onChange={this.onChange}
+                                    value={this.state.responsavel}
                                     className="form-control" />
                             </div>
                         </div>

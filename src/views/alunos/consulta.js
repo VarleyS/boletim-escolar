@@ -53,6 +53,7 @@ class ConsultaAluno extends React.Component {
                                     <th scope="col">RG</th>
                                     <th scope="col">Sexo</th>
                                     <th scope="col">Telefone</th>
+                                    <th scope="col">Responsavel</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -66,6 +67,7 @@ class ConsultaAluno extends React.Component {
                                                 <th>{aluno.rg}</th>
                                                 <th>{aluno.sexo}</th>
                                                 <th>{aluno.telefone}</th>
+                                                <th>{aluno.responsavel}</th>
                                                 <th>
                                                     <button onClick={() => this.preparaEditar(aluno.cpf)} className="btn btn-primary">Editar</button>
                                                     <button className="btn btn-danger">Remover</button>
