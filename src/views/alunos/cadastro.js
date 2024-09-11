@@ -38,6 +38,13 @@ class CadastroAluno extends React.Component {
         this.service = new AlunoService();
     }
 
+    Chamada = () => {
+        fetch('https://localhost:44346/aluno')
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Erro ao buscar alunos:', error));
+    }
+
     onChange = (event) => {
         const valor = event.target.value;
         const nomeCampo = event.target.name;
@@ -55,9 +62,10 @@ class CadastroAluno extends React.Component {
             responsavel: this.state.responsavel
         }
         try {
-            this.service.salvar(aluno)
-            this.limpaCampos()
-            this.setState({ sucesso: true })
+            this.Chamada()
+            //this.service.salvar(aluno)
+            //this.limpaCampos()
+            //this.setState({ sucesso: true })
         } catch (erro) {
             const errors = erro.errors
             this.setState({ errors: errors })
