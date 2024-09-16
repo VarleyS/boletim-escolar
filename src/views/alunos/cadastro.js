@@ -1,5 +1,5 @@
 import React from "react";
-import AlunoService from "../../app/alunoService";
+//import AlunoService from "../../app/alunoService";
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 function withRouter(Component) {
@@ -33,17 +33,17 @@ class CadastroAluno extends React.Component {
 
     state = estadoInicial;
 
-    constructor() {
+    /* constructor() {
         super()
         this.service = new AlunoService();
-    }
+    } */
 
-    Chamada = () => {
+    /* Chamada = () => {
         fetch('https://localhost:44346/aluno')
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Erro ao buscar alunos:', error));
-    }
+    } */
 
     onChange = (event) => {
         const valor = event.target.value;
@@ -51,21 +51,45 @@ class CadastroAluno extends React.Component {
         this.setState({ [nomeCampo]: valor });
     }
 
-    onSubmit = (event) => {
+    onSubmit = async (event) => {
+
+        event.preventDefault(); //Evita o comportamento padrão de submissão do formulário
+
+        const dataNascimentoConvertida = this.converterDataParaISO(this.state.dataNascimento);
+
         const aluno = {
-            nome: this.state.nome,
-            dataNascimento: this.state.dataNascimento, // Formato DD/MM/AAAA
+            Name: this.state.nome,
+            dataNascimento: dataNascimentoConvertida, // Formato DD/MM/AAAA
             cpf: this.state.cpf,
             rg: this.state.rg,
             sexo: this.state.sexo,
             telefone: this.state.telefone,
             responsavel: this.state.responsavel
-        }
+        };
+
+        console.log('Dados recebidos pela API:', aluno);
+
         try {
-            this.Chamada()
-            //this.service.salvar(aluno)
-            //this.limpaCampos()
-            //this.setState({ sucesso: true })
+            const response = await fetch('https://localhost:44346/Aluno', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(aluno)
+            });
+
+
+            if (!response.ok) {
+                throw new Error('Erro ao cadastrar aluno: ${response.statusText}');
+            }
+
+
+            const data = await response.json();
+
+            console.log('Aluno salvo com sucesso: ', data);
+            this.limpaCampos();
+            this.setState({ sucesso: true });
+
         } catch (erro) {
             const errors = erro.errors
             this.setState({ errors: errors })
@@ -77,10 +101,20 @@ class CadastroAluno extends React.Component {
         this.setState(estadoInicial);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         console.log(this.props.params)
 
     }
+
+    converterDataParaISO(data) {
+        const partes = data.split('/');
+        const dia = partes[0];     // DD
+        const mes = partes[1];     // MM
+        const ano = partes[2];     // AAAA
+
+        // Retorna no formato AAAA-MM-DD
+        return `${ano}-${mes}-${dia}`;
+    };
 
     render() {
         return (

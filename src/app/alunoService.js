@@ -11,18 +11,20 @@ export default class AlunoService {
     obterAlunos = async () => {
         try {
             const response = await fetch(this.apiUrl);
-            if (!response.ok) {
+            if (response.ok) {
+                const alunos = await response.json();
+                return alunos;
+
+            } else {
                 throw new Error("Erro ao buscar alunos.");
             }
-            const alunos = await response.json();
-            return alunos;
         } catch (error) {
             console.error("Erro ao buscar alunos:", error);
             throw error;
         }
     }
 
-    // Salva um aluno usando a API
+   /*  // Salva um aluno usando a API
     salvar = async (aluno) => {
         this.validar(aluno);
 
@@ -43,7 +45,7 @@ export default class AlunoService {
             throw error;
         }
     }
-
+ */
     validar = (aluno) => {
         const errors = [];
 
