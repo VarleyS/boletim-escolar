@@ -33,18 +33,6 @@ class CadastroAluno extends React.Component {
 
     state = estadoInicial;
 
-    /* constructor() {
-        super()
-        this.service = new AlunoService();
-    } */
-
-    /* Chamada = () => {
-        fetch('https://localhost:44346/aluno')
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.error('Erro ao buscar alunos:', error));
-    } */
-
     onChange = (event) => {
         const valor = event.target.value;
         const nomeCampo = event.target.name;
@@ -198,12 +186,13 @@ class CadastroAluno extends React.Component {
                         <div className="col-md-6">
                             <div className="form-group">
                                 <label>Sexo: *</label>
-                                <input
-                                    type="text"
-                                    name="sexo"
-                                    onChange={this.onChange}
+                                <select name="sexo" onChange={this.onChange}
                                     value={this.state.sexo}
-                                    className="form-control" />
+                                    className="form-control">
+                                    <option></option>
+                                    <option>Masculino</option>
+                                    <option>Feminino</option>
+                                </select>
                             </div>
                         </div>
 
