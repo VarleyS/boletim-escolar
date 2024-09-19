@@ -29,27 +29,6 @@ class ConsultaAluno extends React.Component {
     }
 
     async componentDidMount() {
-        const { id } = this.props.router.params;
-
-        if (id) {
-            try {
-                const response = await fetch(`https://localhost:44346/aluno/${id}`);
-                const data = await response.json();
-
-                this.setState({
-                    nome: data.Name,  // Certifique-se de que o nome do campo seja "nome" na sua API
-                    dataNascimento: data.dataNascimento,
-                    cpf: data.cpf,
-                    rg: data.rg,
-                    sexo: data.sexo,
-                    telefone: data.telefone,
-                    responsavel: data.responsavel
-                });
-            } catch (error) {
-                console.error('Erro ao buscar aluno:', error);
-            }
-        }
-
         try {
             const alunos = await this.service.obterAlunos(); // Aguarda a resposta da API
             console.log('Dados recebidos pela API:', alunos);
@@ -78,21 +57,9 @@ class ConsultaAluno extends React.Component {
         return '';
     };
 
-
-
-    retornaDataParaISO(data) {
-        const partes = data.split('/');
-        const dia = partes[0];     // DD
-        const mes = partes[1];     // MM
-        const ano = partes[2];     // AAAA
-
-        // Retorna no formato AAAA-MM-DD
-        return `${dia}-${mes}-${ano}`;
-    };
-
     preparaEditar = (cpf) => {
         const aluno = this.state.alunos.find(aluno => aluno.cpf === cpf);
-        if (aluno && aluno.id) {
+        if (aluno) {
             this.props.router.navigate(`/cadastro-aluno/${aluno.id}`);
         } else {
             console.error("Aluno não encontrado ou ID inválido.")

@@ -19,13 +19,14 @@ function withRouter(Component) {
 
 const estadoInicial = {
     nome: '',
-    dataNascimento: '', // Formato DD/MM/AAAA
+    dataNascimento: '',
     cpf: '',
     rg: '',
     sexo: '',
     telefone: '',
     responsavel: '',
     sucesso: false,
+    alunos: [],
     errors: []
 }
 
@@ -34,9 +35,8 @@ class CadastroAluno extends React.Component {
     state = estadoInicial;
 
     onChange = (event) => {
-        const valor = event.target.value;
-        const nomeCampo = event.target.name;
-        this.setState({ [nomeCampo]: valor });
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
     }
 
     onSubmit = async (event) => {
@@ -89,10 +89,42 @@ class CadastroAluno extends React.Component {
         this.setState(estadoInicial);
     }
 
-    componentDidMount() {
-        console.log(this.props.params)
+    async componentDidMount() {
+        const id = this.props.router.params;  // Pegue o ID da URL
 
+        // Verifica se o ID está presente na URL
+        if (id) {
+            try {
+                // Busca o aluno pelo ID
+                const response = await fetch(`https://localhost:44346/Aluno`);
+
+                // Verifica se a resposta foi bem-sucedida
+                if (response.ok) {
+                    const data = await response.json();
+                    if (Array.isArray(data)) {
+                        const aluno = data.find(aluno => aluno.id === id);
+                    }
+
+                    if (aluno) {
+                        this.setState({
+                            nome: aluno.name,  // Nome do campo deve ser compatível com o retorno da API
+                            dataNascimento: aluno.dataNascimento,
+                            cpf: aluno.cpf,
+                            rg: aluno.rg,
+                            sexo: aluno.sexo,
+                            telefone: aluno.telefone,
+                            responsavel: aluno.responsavel
+                        });
+                    }
+                } else {
+                    console.error(`Erro ao buscar aluno com ID: ${id}`);
+                }
+            } catch (error) {
+                console.error('Erro ao buscar aluno:', error);
+            }
+        }
     }
+
 
     converterDataParaISO(data) {
         const partes = data.split('/');
@@ -130,7 +162,6 @@ class CadastroAluno extends React.Component {
                         })
 
                     }
-
 
                     <div className="row">
                         <div className="col-md-6">

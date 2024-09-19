@@ -23,29 +23,6 @@ export default class AlunoService {
             throw error;
         }
     }
-
-   /*  // Salva um aluno usando a API
-    salvar = async (aluno) => {
-        this.validar(aluno);
-
-        try {
-            const response = await fetch(this.apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(aluno)
-            });
-
-            if (!response.ok) {
-                throw new Error("Erro ao salvar aluno.");
-            }
-        } catch (error) {
-            console.error("Erro ao salvar aluno:", error);
-            throw error;
-        }
-    }
- */
     validar = (aluno) => {
         const errors = [];
 
